@@ -1,0 +1,24 @@
+body div img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 300px;
+}
+
+input {
+	margin: 0 auto;
+}
+
+
+input[type="text"] {
+	display: block;
+	margin-top: 10px;
+	width: 525px;
+	height: 36px;
+}
+
+#buttons {
+	display:block;
+	width: 300px;
+	margin: 10px auto;
+}
