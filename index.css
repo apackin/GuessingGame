@@ -1,8 +1,24 @@
-body div img {
+html {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	color: #9EAEB3;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+p {
+	color:black;
+	font-size: .8em;
+}
+
+img {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	width: 300px;
+	margin-bottom: -2em;
 }
 
 input {
@@ -10,15 +26,33 @@ input {
 }
 
 
-input[type="text"] {
+input[type="number"] {
 	display: block;
 	margin-top: 10px;
-	width: 525px;
-	height: 36px;
+	width: 225px;
+	height: 76px;
+	font-size: 2em;
+	text-align: center;
 }
 
-#buttons {
+#optButdiv {
 	display:block;
 	width: 300px;
 	margin: 10px auto;
+}
+
+.optButtons {
+	width: 40%;
+}
+
+#subButton {
+	background-color: red;
+	padding: 2px 4px;
+    font: 1em sans-serif;
+    text-decoration: none;
+    border: 1px solid #000;
+    border-color: #aaa #444 #444 #aaa;
+    color: #000;
+    width: 250px;
+	height: 36px;
 }
