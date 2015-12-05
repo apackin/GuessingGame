@@ -1,58 +1,73 @@
-html {
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-	color: #9EAEB3;
+html {}
+
+.header {
+  background: #373737;
+  border: 1px solid #CCC;
+  width: 960px;
+  margin: 0px auto;
 }
 
 h1 {
-	font-size: 3em;
+  font-size: 2em;
+  color: #89bdd3;
+  margin-left: 1em;
+}
+
+.contents {
+  text-align: center;
+  width: 50%;
+  margin: 1em auto;
+  background: white;
+  border:1px solid black;
 }
 
 p {
-	color:black;
-	font-size: .8em;
-}
-
-img {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: -2em;
+  color: black;
+  font-size: 1.2em;
 }
 
 input {
-	margin: 0 auto;
+  margin: 0 auto;
 }
-
 
 input[type="number"] {
-	display: block;
-	margin-top: 10px;
-	width: 225px;
-	height: 76px;
-	font-size: 2em;
-	text-align: center;
-}
-
-#optButdiv {
-	display:block;
-	width: 300px;
-	margin: 10px auto;
-}
-
-.optButtons {
-	width: 40%;
+  display: block;
+  margin-top: 10px;
+  width: 225px;
+  height: 76px;
+  font-size: 2em;
+  text-align: center;
 }
 
 #subButton {
-	background-color: red;
-	padding: 2px 4px;
-    font: 1em sans-serif;
-    text-decoration: none;
-    border: 1px solid #000;
-    border-color: #aaa #444 #444 #aaa;
-    color: #000;
-    width: 250px;
-	height: 36px;
+  background-color: #89bdd3;
+  padding: 2px 4px;
+  font: 1.2em sans-serif;
+  text-decoration: none;
+  border: 1px solid #000;
+  border-color: #aaa #444 #444 #aaa;
+  color: #000;
+  width: 250px;
+  height: 36px;
+  font-weight: bold;
+}
+
+#optButdiv {
+  display: block;
+  width: 300px;
+  margin: 10px auto;
+  font-size: 1em;
+}
+
+.optButtons {
+  font-size: 1em;
+  height: 1.5em;
+}
+
+.footer {
+  text-align: center;
+  background: white;
+  width: 30%;
+  margin: auto;
+  border:1px groove #373737;
 }
