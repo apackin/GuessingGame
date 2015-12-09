@@ -22,10 +22,14 @@ function playersGuessSubmission() {
     $('#textlowerOrHigher').text('The number is between 1 and 100, silly!');
     return false;
   };
+  if(Number.isInteger(playersGuess)== false) {
+    $('#textlowerOrHigher').text("Let's stick with integers for now!");
+    return false;
+  };
 
   // Prevent repeat guesses
   for(i=0;i<arrGuesses.length;i++){
-    if (arrGuesses == playersGuess) {
+    if (arrGuesses[i] == playersGuess) {
       $('#textlowerOrHigher').text('You already guessed that number!');
       return false;
     };
@@ -49,6 +53,7 @@ function playersGuessSubmission() {
     hideContent();
 
     // edit message
+    $('.footer').css('fontSize', '1.15em');
     $('#lives').prepend('You won with ');
     $('#footMessage').append('<br><br> Congratulations!');
     // Fireworks?
@@ -74,12 +79,13 @@ function playersGuessSubmission() {
     var lives = +$('#lives').text() - 1;
     $('#lives').text(lives);
 
-    if (lives == 0) {    
+    if (lives == 0) {   
+      hideContent(); 
+      
       $('#lives').text('');
       $('#footMessage').text('GAME OVER');
-      hideContent();
       $('.footer').animate({
-        fontSize: '60px'
+        fontSize: '2.5em'
       }, 1500);
 
     } else if (lives == 1) {
