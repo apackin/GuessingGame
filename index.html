@@ -3,6 +3,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
   <script src="guessingGame.js"></script>
+  <script type="text/javascript" src="jquery.fireworks.js"></script>
 </head>
 
 <body>
@@ -14,8 +15,10 @@
     <p>
       Welcome to the Guessing Game
     </p>
-    <h4 id=textGuesses> Please input your guess between 1-100 </h4>
+    <h4 id=textGuesses> </h4>
+
     <div>
+
 
         <input type="number" id="subNum" name="quantity" min="1" max="100">
 
@@ -24,14 +27,17 @@
         <input id="subButton" type="button" value="Submit Your Guess">
 
         <br>
+        <h4 id=textlowerOrHigher> </h4>
+        <h4 id=textHint> </h4>
 
         <div id="optButdiv">
           <input class="optButtons" id='again' type="button" value="Play Again">
           <input class="optButtons" id='hint' type="button" value="Give Me A Hint">
         </div>
+
     </div>
   </div>
-  </div>
+
   <div class="footer">
 
     <h4> <span id="lives"></span> <span id="footMessage"></span> </h4>

@@ -10,6 +10,23 @@ function generateWinningNumber() {
 
 function playersGuessSubmission() {
   var playersGuess = +$('#subNum').val();
+  $('#subNum').val('');
+  // take input and clear feild
+
+  // Prevent off base guesses
+  if(playersGuess<1 || playersGuess>100) {
+    $('#textlowerOrHigher').text('The number is between 1 and 100, silly!');
+    return false;
+  };
+
+  // Prevent repeat guesses
+  for(i=0;i<arrGuesses.length;i++){
+    if (arrGuesses == playersGuess) {
+      $('#textlowerOrHigher').text('You already guessed that number!');
+      return false;
+    };
+  };
+
 
   // Store guess in array and display
   if (arrGuesses.length == 1) {
@@ -19,45 +36,49 @@ function playersGuessSubmission() {
   $('#textGuesses').text('You have guessed' + arrGuesses);
   $('#textGuesses').show();
 
-  // clear guess
-  $('#subNum').val('');
+
 
 
   // I'm not sure how to run this if statement and stop if the checkGuess comes back true
   if (playersGuess == winningNumber) {
-    alert('You Win!!!');
-
     // hide all content except play again button
     hideContent();
 
     // edit message
     $('#lives').prepend('You won with ');
     $('#footMessage').append('<br> Congratulations!');
-    for (i = 0; i < 3; i++) {
-      $('.footer').animate({
-        width: "100%"
-      });
-      $('.footer').animate({
-        width: "40%"
-      });
-      //Is there way to set this loop until player clicks Play Again?
-    };
+
+    // footer dance
+      for (i = 0; i < 4; i++) {
+        $('.footer').animate({
+          width: "100%"
+        });
+        $('.footer').animate({
+          width: "40%"
+        });
+        //Is there way to set this loop until player clicks Play Again?
+      };
+
   } else {
     lowerOrHigher(playersGuess);
 
-    // lose a life
+    // lose a life/game over
     var lives = +$('#lives').text() - 1;
     $('#lives').text(lives);
-    if (lives == 0) {
-      alert('Sorry, you lost :(!')
+
+    if (lives == 0) {    
+      $('#lives').text('');
+      $('#footMessage').text('GAME OVER');
       hideContent();
       $('.footer').animate({
         fontSize: '60px'
-      }, 3000);
+      }, 1500);
 
     } else if (lives == 1) {
       $('#footMessage').text('Last Guess Remaining');
     };
+
+
 
   }
 }
@@ -67,13 +88,16 @@ function playersGuessSubmission() {
 function lowerOrHigher(sub) {
   var diffAbs = Math.abs(winningNumber - sub);
   if (sub > winningNumber) {
-    alert(diffAbs + ' you should submit a lower number ' + winningNumber)
-      //   have this go into storage for hint
+    $('#textlowerOrHigher').text('You should submit a lower number');
   } else if (sub < winningNumber) {
-    alert('you should submit a higher number ' + winningNumber)
-      // have this go into storage for hint
-  }
+    $('#textlowerOrHigher').text('You should submit a higher number');
+  };
+
+  // hint generator
+  provideHint(diffAbs);
+
 }
+
 
 function hideContent() {
   $('.contents').hide('slow');
@@ -88,8 +112,16 @@ function checkGuess(sub) {
 
 // Create a provide hint button that provides additional clues to the "Player"
 
-function provideHint() {
-  // add code here
+function provideHint(diffAbs) {
+  if (diffAbs>20) {
+    $('#textHint').text('Your guess is way off' + winningNumber);
+  } else if (diffAbs>10) {
+    $('#textHint').text('Your guess is not too far');
+  } else if (diffAbs>5) {
+    $('#textHint').text("You're very close!");
+  } else {
+    $('#textHint').text('You could probably be further if you tried');
+  };
 }
 
 // Allow the "Player" to Play Again
@@ -98,9 +130,11 @@ function playAgain() {
   winningNumber = generateWinningNumber();
   arrGuesses = [];
   // ^ These are my global variables...
+
   $('#lives').text(5);
   $('#footMessage').text('Guesses Remaining');
   $('#textGuesses').text('Please input your guess between 1-100');
+  $('#textHint').hide();
 
 
   // reset game ending actions
@@ -114,8 +148,6 @@ function playAgain() {
   // reset losing changes
   $('.footer').css('fontSize', '');
 
-  alert('A new Number is being generated for you!');
-
 }
 
 
@@ -124,14 +156,15 @@ $('document').ready(function() {
   playAgain();
   $('#subButton').click(playersGuessSubmission);
   // 13 is the code for the "enter" key that keypress accepts.
-  /*  $('form').keypress(function(e) {
+  $('#subNum').keypress(function(e) {
       if (e.which == 13) {
-        alert('enter press');
-        return false;
-    });
-    */
+       playersGuessSubmission();
+    };
+  });
+    
   $('#again').click(playAgain);
-  $('#hint').click(provideHint);
-
+  $('#hint').click(function() {
+      $('#textHint').toggle();
+  });
 
 });
