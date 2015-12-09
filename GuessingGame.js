@@ -9,6 +9,10 @@ function generateWinningNumber() {
 // Fetch the Players Guess
 
 function playersGuessSubmission() {
+  // turn off fireworkds from previous win
+  $('.header').fireworks('destroy');
+
+
   var playersGuess = +$('#subNum').val();
   $('#subNum').val('');
   // take input and clear feild
@@ -46,10 +50,12 @@ function playersGuessSubmission() {
 
     // edit message
     $('#lives').prepend('You won with ');
-    $('#footMessage').append('<br> Congratulations!');
+    $('#footMessage').append('<br><br> Congratulations!');
+    // Fireworks?
+    $('.header').fireworks();
 
     // footer dance
-      for (i = 0; i < 4; i++) {
+      for (i = 0; i < 5; i++) {
         $('.footer').animate({
           width: "100%"
         });
@@ -58,6 +64,8 @@ function playersGuessSubmission() {
         });
         //Is there way to set this loop until player clicks Play Again?
       };
+
+    
 
   } else {
     lowerOrHigher(playersGuess);
@@ -104,23 +112,16 @@ function hideContent() {
   $('#optButdiv').appendTo('.footer');
   $('#hint').hide();
 }
-// Check if the Player's Guess is the winning number 
-
-function checkGuess(sub) {
-  // add code here if(sub==winningNumber) { alert('You Win!!!') };
-}
 
 // Create a provide hint button that provides additional clues to the "Player"
 
 function provideHint(diffAbs) {
   if (diffAbs>20) {
-    $('#textHint').text('Your guess is way off' + winningNumber);
+    $('#textHint').text('Your guess is way off ' + winningNumber);
   } else if (diffAbs>10) {
     $('#textHint').text('Your guess is not too far');
   } else if (diffAbs>5) {
     $('#textHint').text("You're very close!");
-  } else {
-    $('#textHint').text('You could probably be further if you tried');
   };
 }
 

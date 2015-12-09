@@ -72,7 +72,7 @@ input[type="number"] {
   background: #89bdd3;
   color: #373737;
   width: 30%;
-  margin: auto;
+  margin: 1em auto;
   border: 1px groove #373737;
   font-variant: small-caps;
 }

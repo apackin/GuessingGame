@@ -46,7 +46,7 @@ TODO:
             canvas.style.right = '0px';
 
             // Kickoff the loops
-            data.interval = setInterval(loop.bind(this, data), 1000 / 50);
+            data.interval = setInterval(loop.bind(this, data), 3000 / 50);
 
             // Save the data for later
             jqe.data('fireworks_data', data);
