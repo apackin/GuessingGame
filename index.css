@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 html {
-=======
-html{
->>>>>>> origin/master
   background-image: URL("back.jpg");
 }
 
@@ -24,11 +20,7 @@ h1 {
   width: 50%;
   margin: 1em auto;
   background: #DCE3E6;
-<<<<<<< HEAD
   border: 1px solid black;
-=======
-  border:1px solid black;
->>>>>>> origin/master
 }
 
 p {
@@ -81,10 +73,6 @@ input[type="number"] {
   color: #373737;
   width: 30%;
   margin: auto;
-<<<<<<< HEAD
   border: 1px groove #373737;
-=======
-  border:1px groove #373737;
->>>>>>> origin/master
   font-variant: small-caps;
 }
