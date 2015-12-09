@@ -1,31 +1,41 @@
-<head> 
-	<link rel="stylesheet" href="index.css" />
+<head>
+  <link rel="stylesheet" href="index.css" />
 </head>
 
 <body>
-	<img src="http://preview.fullstackacademy.com/images/fa-logo@2x.png"> 
-	<h1> Guess the Number </h1> 
-	<p> Must Be Between 1-100 </p> 
-	<div > 
-		<form action="guess" class="center">
-				
-			
-			<input type="number" value="Input Number 1-100"name="quantity" min="1" max="100">
-			
-			<br>
-			
-			<input id="subButton" type="submit" value="Submit Your Guess">
+  <div class="header">
+    <h1> Guess the Number </h1>
+  </div>
 
-			<br>
-			<br>
-
-			<div id="optButdiv">
-			<input class="optButtons" type="submit" value="Play Again">
-			<input class="optButtons" type="submit" value="Give Me A Hint">
-			</div>
-	</div>
+  <div class="contents">
+    <p>
+      Welcome to the Guessing Game
+    </p>
+    <h4 id=textGuesses> </h4>
+    <div>
+      <form>
 
 
-	<h4> 5 Guess Remaining </h4>
+        <input type="number" id="subNum" name="quantity" min="1" max="100">
+
+        <br>
+
+        <input id="subButton" type="button" value="Submit Your Guess">
+
+        <br>
+
+        <div id="optButdiv">
+          <input class="optButtons" id='again' type="button" value="Play Again">
+          <input class="optButtons" id='hint' type="button" value="Give Me A Hint">
+        </div>
+    </div>
+  </div>
+  </div>
+  <div class="footer">
+
+    <h4> <span id="lives"></span> <span id="footMessage"></span> </h4>
+       
+    </h4>
+  </div>
 
 </body>
