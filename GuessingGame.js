@@ -56,7 +56,7 @@ function playersGuessSubmission() {
     $('.footer').css('fontSize', '1.15em');
     $('#lives').prepend('You won with ');
     $('#footMessage').append('<br><br> Congratulations!');
-    // Fireworks?
+    // Fireworks Plugin
     $('.header').fireworks();
 
     // footer dance
@@ -75,18 +75,34 @@ function playersGuessSubmission() {
   } else {
     lowerOrHigher(playersGuess);
 
-    // lose a life/game over
+    // lose a life
     var lives = +$('#lives').text() - 1;
     $('#lives').text(lives);
 
+    // Game Over
     if (lives == 0) {   
       hideContent(); 
-      
+
+      // hide Play Again button during animations
+      $('#optButdiv').hide();
+        setTimeout(function() {
+          $('#optButdiv').show();
+        }, 3000);
+
       $('#lives').text('');
       $('#footMessage').text('GAME OVER');
       $('.footer').animate({
         fontSize: '2.5em'
-      }, 1500);
+      }, 3000);
+      
+      // Rotate Plugin
+      $('#footMessage').rotate({ count:5, duration:0.6, easing:'ease-out' });
+
+      // black and red coloring
+      $('#footMessage').css('color', 'red');
+      $('html').css('background-image', 'none');
+
+
 
     } else if (lives == 1) {
       $('#footMessage').text('Last Guess Remaining');
@@ -145,12 +161,17 @@ function playAgain() {
 
 
   // reset game ending actions
-  $('.footer').animate({
-    width: "30%"
-  });
   $('.contents').show();
   $('#optButdiv').appendTo('.contents');
   $('#hint').show();
+
+    // from loss
+    $('html').css('background-image', 'URL("back.jpg")');
+    $('#footMessage').css('color', 'black');
+    // from win
+    $('.footer').animate({
+      width: "30%"
+    });
 
   // reset losing changes
   $('.footer').css('fontSize', '');
